@@ -3,16 +3,18 @@ using System.Collections;
 
 public class car : MonoBehaviour {
 
-	public Vector2 initialforce = new Vector2(0,60);
-	public Vector2 initialposition = new Vector2(0,-7);
+	public Vector2 initialVelocity = new Vector2(0f,60f);
+	public Vector2 initialposition = new Vector2(0f,-2.5f);
 	public float cutoffTimeInS = 3.0f;
 	float timeInS = 0f;
 	bool timerReached;
 
 	// Use this for initialization
 	void Start () {
+
 		rigidbody2D.transform.position = initialposition;
-		rigidbody2D.AddForce (initialforce);
+		rigidbody2D.velocity = initialVelocity;
+
 		timeInS = 0f;
 		timerReached = false;
 		print ("Start()");
@@ -24,6 +26,8 @@ public class car : MonoBehaviour {
 		if (timerReached)
 			return;
 		timeInS += Time.deltaTime;
+		
+		rigidbody2D.velocity = new Vector2(0, (initialVelocity.y * ((cutoffTimeInS - timeInS)/cutoffTimeInS))) ;
 
 		if(timeInS % 1 == 0)
 			print ("TimeInS = " + timeInS);
