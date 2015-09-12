@@ -7,15 +7,14 @@ public class RoadScroll : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		//print ("Texture height = " + renderer.material.mainTexture.height);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		Vector2 offset = new Vector2 (0, speed * Time.time);
+		Vector2 offset = new Vector2 (0,(speed * Time.time) % renderer.material.mainTexture.height);
 		
-		renderer.material.mainTextureOffset = offset;
-		
+		renderer.material.mainTextureOffset = (offset);
 	}
 }
