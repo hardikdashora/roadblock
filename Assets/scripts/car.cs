@@ -17,7 +17,7 @@ public class car : MonoBehaviour {
 
 		timeInS = 0f;
 		timerReached = false;
-		print ("Start()");
+		//print ("Start()");
 
 	}
 	
@@ -43,14 +43,14 @@ public class car : MonoBehaviour {
 		 * Called when the timer reaches the specified cut-off time
 		 */
 
-		print ("Cutoff time reached");
+		//print ("Cutoff time reached");
 		timerReached = true;
 		rigidbody2D.velocity = Vector2.zero;
 	}
 
 	void OnCollisionEnter2D()
 	{
-		print ("player.cs onEnterCollision2D()");
+		// print ("player.cs onEnterCollision2D()");
 		Die ();
 	}
 	

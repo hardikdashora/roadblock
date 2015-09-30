@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\mousedetect.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="roadblock2.0.sln">
     <Files>
-      <File FileName="Assets\scripts\mousedetect.cs" Line="54" Column="39" />
+      <File FileName="roadblock2.0.sln" Line="1" Column="1" />
+      <File FileName="Assets\scripts\mousedetect.cs" Line="10" Column="2" />
+      <File FileName="Assets\scripts\clone.cs" Line="18" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
