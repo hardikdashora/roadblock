@@ -3,8 +3,8 @@ using System.Collections;
 
 public class mousedetect : MonoBehaviour {
 
-	public Vector2 SwipeForceLeft = new Vector2 (-5000,0);
-	public Vector2 SwipeForceRight = new Vector2(5000,0);
+	public Vector2 SwipeForceLeft = new Vector2 (-300,0);
+	public Vector2 SwipeForceRight = new Vector2(300,0);
 
 	private bool isValidHit = false; // flag for hit
 
@@ -26,7 +26,7 @@ public class mousedetect : MonoBehaviour {
 	{
 			MouseDownPos = Input.mousePosition.x;
 			print ("Valid hit on " + gameObject.name + ". mouseDown hit at " + MouseDownPos);
-			//print ("mouseDown hit at " + MouseDownPos);
+			print ("mouseDown hit at " + MouseDownPos);
 			isValidHit = true;
 			
 	}

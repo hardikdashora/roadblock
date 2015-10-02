@@ -16,6 +16,6 @@ public class DestroyOnEnter : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D  col)
 	{
 		print (col.gameObject.name + " collided with a destroyer");
-		Destroy (col.gameObject);
+		Destroy(col.gameObject);
 	}
 }
