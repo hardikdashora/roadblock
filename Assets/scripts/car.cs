@@ -5,6 +5,7 @@ public class car : MonoBehaviour {
 
 	public Vector2 initialVelocity = new Vector2(0f,60f);
 	public Vector2 initialposition = new Vector2(0f,-2.5f);
+	public float zIndex = 5f;
 	public float cutoffTimeInS = 3.0f;
 	float timeInS = 0f;
 	bool timerReached;
@@ -14,7 +15,10 @@ public class car : MonoBehaviour {
 
 		rigidbody2D.transform.position = initialposition;
 		rigidbody2D.velocity = initialVelocity;
-
+		
+		rigidbody2D.transform.localPosition = new Vector3(initialposition.x,
+		                                                  initialposition.y,
+		                                                  zIndex);
 		timeInS = 0f;
 		timerReached = false;
 		//print ("Start()");
