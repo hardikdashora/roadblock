@@ -62,6 +62,7 @@ public class car : MonoBehaviour {
 	{
 		//To reload level
 		//Called when the car hits an obstacle
+		ScoreManager.StoreHiScore ();
 		Application.LoadLevel (Application.loadedLevelName);
 		
 	}

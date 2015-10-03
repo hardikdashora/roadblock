@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public class gamePause : MonoBehaviour {
@@ -19,12 +20,10 @@ public class gamePause : MonoBehaviour {
 
 	}
 
-	void OnMouseDown()
+	public void PauseGame()
 	{
-		MouseDownPos = Input.mousePosition.x;
-		print ("Valid hit on " + gameObject.name + ". mouseDown hit at " + MouseDownPos);
-		print ("mouseDown hit at " + MouseDownPos);
-		
+		print ("Pausing game");
+		ObstacleSpawner.spawnObstacles = false;
 	}
 	
 

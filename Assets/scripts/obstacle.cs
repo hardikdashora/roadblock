@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class obstacle : MonoBehaviour {
+public class Obstacle : MonoBehaviour {
 	
 	
 	public Vector2 velocity = new Vector2(0, -4);

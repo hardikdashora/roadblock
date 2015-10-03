@@ -1,30 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class clone : MonoBehaviour {
+public class ObstacleSpawner: MonoBehaviour {
 
 	//public GameObject truck;
 	//public GameObject blockLeft;
 	public GameObject[] Myblocks = new GameObject[3];
 	public Vector2 respawn_position;
-	public float timer = 0.0f;
+	public float timer = 0.0f, spawnEvery = 1f; 
 	public int counter = 0;
 	int score = 0;
-	
-	public void respawn_truck()
+
+	public static bool spawnObstacles = true;
+
+	public void DropObstacle()
 	{
+		print ("dropping obstacle");
 		respawn_position = new Vector2 (0, 6);
 		var clone = Instantiate (Myblocks[Random.Range(0,2)], respawn_position, Quaternion.identity);
-		clone.name = "clone-Right" + counter;
+		clone.name = "Obstacle_" + counter;
 
 	}
-	
-	void OnGUI () 
-	{
-		GUI.color = Color.white;
-		GUILayout.Label(" Score: " + score.ToString());
-	}
-	
+
 	// Use this for initialization
 	void Start () {
 		
@@ -34,14 +31,15 @@ public class clone : MonoBehaviour {
 	void Update () 
 		
 	{
-		timer += Time.deltaTime;
-		if (timer > 2) 
-		{
-			respawn_truck();
-			timer = 0.0f;
-			counter++;
-			score++;
-		}
+		if (spawnObstacles) {
+						timer += Time.deltaTime;
+						if (timer > spawnEvery) {
+								DropObstacle ();
+								timer = 0.0f;
+								counter++;
+								score++;
+						}
+				}
 	}
 
 

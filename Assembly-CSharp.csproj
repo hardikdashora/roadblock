@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DestroyOnCollision.cs" />
+     <Compile Include="Assets\ScoreManager.cs" />
      <Compile Include="Assets\scripts\DestroyOnEnter.cs" />
+     <Compile Include="Assets\scripts\MouseDetect.cs" />
+     <Compile Include="Assets\scripts\Obstacle.cs" />
+     <Compile Include="Assets\scripts\ObstacleSpawner.cs" />
      <Compile Include="Assets\scripts\ParallaxPrefabSpawner.cs" />
      <Compile Include="Assets\scripts\PauseScript.cs" />
      <Compile Include="Assets\scripts\RoadScroll.cs" />
@@ -55,10 +59,7 @@
      <Compile Include="Assets\scripts\SmokeEmitter.cs" />
      <Compile Include="Assets\scripts\TapToMove.cs" />
      <Compile Include="Assets\scripts\car.cs" />
-     <Compile Include="Assets\scripts\clone.cs" />
      <Compile Include="Assets\scripts\gamePause.cs" />
-     <Compile Include="Assets\scripts\mousedetect.cs" />
-     <Compile Include="Assets\scripts\obstacle.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -16,6 +16,7 @@ public class DestroyOnCollision : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		print ("Something hit me!");
+		ScoreManager.AddToScore();
 		if (coll.gameObject.CompareTag ("Enemy")) {
 			print ("It's an enemy!!");
 			Destroy(coll.gameObject);
