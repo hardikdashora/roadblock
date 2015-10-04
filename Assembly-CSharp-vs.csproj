@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CloudKiller.cs" />
      <Compile Include="Assets\DestroyOnCollision.cs" />
      <Compile Include="Assets\ScoreManager.cs" />
+     <Compile Include="Assets\TapToStart.cs" />
      <Compile Include="Assets\scripts\DestroyOnEnter.cs" />
      <Compile Include="Assets\scripts\MouseDetect.cs" />
      <Compile Include="Assets\scripts\Obstacle.cs" />

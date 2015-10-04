@@ -11,7 +11,7 @@ public class ObstacleSpawner: MonoBehaviour {
 	public int counter = 0;
 	int score = 0;
 
-	public static bool spawnObstacles = true;
+	public static bool spawnObstacles;
 
 	public void DropObstacle()
 	{
@@ -24,22 +24,23 @@ public class ObstacleSpawner: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		spawnObstacles = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
-		
 	{
-		if (spawnObstacles) {
-						timer += Time.deltaTime;
-						if (timer > spawnEvery) {
-								DropObstacle ();
-								timer = 0.0f;
-								counter++;
-								score++;
-						}
-				}
+
+		if (spawnObstacles) 
+		{
+			timer += Time.deltaTime;
+			if (timer > spawnEvery) 
+			{
+				timer = 0.0f;
+				DropObstacle ();
+				counter++;
+			}
+		}
 	}
 
 

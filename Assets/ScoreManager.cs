@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour {
 
 	//PlayerPrefs prefs;												//Variable to fetch locally stored preferences from
 	private static int score = 0, hiScore = 0;
-	public Text scoreDisplay, hiScoreDisplay;
+	public Text scoreDisplay, hiScoreDisplay, optionalTutorial;
 	static ScoreManager staticReference;
 	//Constant keys for PlayerPrefs
 	public static string PREF_HISCORE  = "user_high_score";
@@ -52,6 +52,13 @@ public class ScoreManager : MonoBehaviour {
 		if (staticReference.hiScoreDisplay != null) {
 			staticReference.hiScoreDisplay.text = hiScore + "";		
 		}
+		
+		if (staticReference.optionalTutorial != null) {
+			if(hiScore > 2)
+			{
+				Destroy( staticReference.optionalTutorial.gameObject );
+			}
+		}
 	}
 
 	public static void StoreHiScore()
@@ -64,4 +71,37 @@ public class ScoreManager : MonoBehaviour {
 		UpdateDisplay ();
 	}
 
+	public void EnableHUD()
+	{
+		// Function to display HUD
+
+		Canvas canvas = GetComponentInParent<Canvas> ();
+		if (canvas == null) 
+		{
+			print ("ScoreManager::EnableHUD() canvas component is null");		
+		} 
+		else 
+		{
+			print ("ScoreManager::EnableHUD() canvas component is not null");	
+			canvas.enabled = true;
+		}
+	
+	}
+	
+	public void DisableHUD()
+	{
+		// Function to display HUD
+		
+		Canvas canvas = GetComponentInParent<Canvas> ();
+		if (canvas == null) 
+		{
+			print ("ScoreManager::DisableHUD() canvas component is null");		
+		} 
+		else 
+		{
+			print ("ScoreManager::DisableHUD() canvas component is not null");	
+			canvas.enabled = false;
+		}
+		
+	}
 }
