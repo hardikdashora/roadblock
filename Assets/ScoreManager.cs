@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour {
 	private static int score = 0, hiScore = 0;
 	public Text scoreDisplay, hiScoreDisplay, optionalTutorial;
 	static ScoreManager staticReference;
+
 	//Constant keys for PlayerPrefs
 	public static string PREF_HISCORE  = "user_high_score";
 
@@ -22,6 +23,22 @@ public class ScoreManager : MonoBehaviour {
 	
 	}
 
+	public static int GetCurrentScore ()
+	{
+		return score;
+	}
+
+	public static bool IsNewHiScore()
+	{
+		bool result;
+		if (score > hiScore)
+						result = true;
+		else
+			result = false;
+		print ("ScoreManager::IsNewHiScore() hiscore = " + hiScore + ",  result = " + result);
+		return result;
+	}
+
 	static void ResetCurrentScore()
 	{
 		score = 0;
@@ -32,6 +49,13 @@ public class ScoreManager : MonoBehaviour {
 	public static void AddToScore()
 	{
 		score ++;
+
+		if(score %10 == 0)
+		{
+			// increase speed after every 0 blocks
+			GamePause.IncreaseSpeed();
+		}
+
 		UpdateDisplay ();
 	}
 

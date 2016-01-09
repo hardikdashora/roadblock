@@ -27,7 +27,7 @@ public class Smoke : MonoBehaviour {
 		                                        renderer.material.color.b,
 		                                    	alpha);
 		timeRemaining -= Time.deltaTime;
-		if (timeRemaining <= 0f) {
+		if (timeRemaining <= 0f || Time.timeScale == 0f) {
 			Destroy(gameObject);		
 		}
 	}

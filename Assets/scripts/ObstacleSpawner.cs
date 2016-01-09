@@ -5,7 +5,7 @@ public class ObstacleSpawner: MonoBehaviour {
 
 	//public GameObject truck;
 	//public GameObject blockLeft;
-	public GameObject[] Myblocks = new GameObject[3];
+	public GameObject[] myBlocks = new GameObject[3];
 	public Vector2 respawn_position;
 	public float timer = 0.0f, spawnEvery = 1f; 
 	public int counter = 0;
@@ -15,9 +15,8 @@ public class ObstacleSpawner: MonoBehaviour {
 
 	public void DropObstacle()
 	{
-		print ("dropping obstacle");
 		respawn_position = new Vector2 (0, 6);
-		var clone = Instantiate (Myblocks[Random.Range(0,2)], respawn_position, Quaternion.identity);
+		var clone = Instantiate (myBlocks[Random.Range(0,myBlocks.Length)], respawn_position, Quaternion.identity);
 		clone.name = "Obstacle_" + counter;
 
 	}
