@@ -174,7 +174,7 @@ public class MouseDetect : MonoBehaviour
 		 * @author : SlashG
 		 */
 				TryToPlayFlickSound ();
-				rigidbody2D.AddForce (shuntForceRight);
+				GetComponent<Rigidbody2D>().AddForce (shuntForceRight);
 		}
 
 		void ShuntToTheLeft ()
@@ -185,7 +185,7 @@ public class MouseDetect : MonoBehaviour
 		 * @author : SlashG
 		 */
 				TryToPlayFlickSound ();
-				rigidbody2D.AddForce (shuntForceLeft);
+				GetComponent<Rigidbody2D>().AddForce (shuntForceLeft);
 		}
 	
 		private void TryToPlayFlickSound ()

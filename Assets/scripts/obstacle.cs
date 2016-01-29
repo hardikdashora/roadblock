@@ -10,10 +10,10 @@ public class Obstacle : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		rigidbody2D.velocity = velocity;
+		GetComponent<Rigidbody2D>().velocity = velocity;
 		transform.position = new Vector3(transform.position.x, transform.position.y + range * Random.value, -0.1f);
 		
-		rigidbody2D.transform.localPosition = new Vector3(transform.position.x,
+		GetComponent<Rigidbody2D>().transform.localPosition = new Vector3(transform.position.x,
 		                                                  transform.position.y,
 		                                                  zIndex);
 	}

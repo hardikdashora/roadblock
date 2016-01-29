@@ -9,15 +9,15 @@ public class RoadScroll : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//print ("Texture height = " + renderer.material.mainTexture.height);
-		initialXOffset = renderer.material.mainTextureOffset.x;
-		initialYOffset = renderer.material.mainTextureOffset.y;
+		initialXOffset = GetComponent<Renderer>().material.mainTextureOffset.x;
+		initialYOffset = GetComponent<Renderer>().material.mainTextureOffset.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		Vector2 offset = new Vector2 ( initialXOffset, initialYOffset + ((speed * Time.time) % renderer.material.mainTexture.height));
+		Vector2 offset = new Vector2 ( initialXOffset, initialYOffset + ((speed * Time.time) % GetComponent<Renderer>().material.mainTexture.height));
 		
-		renderer.material.mainTextureOffset = (offset);
+		GetComponent<Renderer>().material.mainTextureOffset = (offset);
 	}
 }

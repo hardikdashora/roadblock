@@ -8,8 +8,9 @@ public class GamePause : MonoBehaviour {
 	private float MouseDownPos; // down position
 	private float MouseUpPos; // up position 
 	public Canvas pauseMenu ;			//Menu to show/hide on pause/resume
+	public Canvas aboutMenu;            //Menu to show when user presses 'ABOUT'
 
-	private float timeScale = 1f;
+    private float timeScale = 1f;
 	private const float speedIncreaseFactor = 0.05f;
 	void Start () {
 	}
@@ -61,17 +62,31 @@ public class GamePause : MonoBehaviour {
 		print("GamePause::IncreaseSpeed() timeScale is now " + Time.timeScale);
 	}
 
-	public void ResumeGame()
-	{
-		if (pauseMenu != null) 
-		{
-			print ("GamePause::ResumeGame() Resuming game");
-			pauseMenu.enabled = false;
-			Time.timeScale = timeScale;
-		}
-	}
+    public void ResumeGame()
+    {
+        if (pauseMenu != null)
+        {
+            print("GamePause::ResumeGame() Resuming game");
+            pauseMenu.enabled = false;
+            Time.timeScale = timeScale;
+        }
+    }
+    public void ShowAbout()
+    {
+        if (aboutMenu != null)
+        {
+            print("GamePause::ShowAbout() Showing about screen");
+            Social.ReportProgress(RoadblockGPG.achievement_good_to_know_you, ScoreManager.GPG_PROGRESS_UNLOCK, (bool success) =>
+            {
+                print("GamePause::ShowAbout() Fire achievement 'Good To Know You' success = " + success);
+            }
+            );
+            pauseMenu.enabled = false;
+            aboutMenu.enabled = true;
+        }
+    }
 
-	public void QuitGame()
+    public void QuitGame()
 	{
 		if (pauseMenu != null) 
 		{

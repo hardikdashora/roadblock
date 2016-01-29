@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.SocialPlatforms;
+using GooglePlayGames;
 using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
@@ -8,6 +10,8 @@ public class ScoreManager : MonoBehaviour {
 	private static int score = 0, hiScore = 0;
 	public Text scoreDisplay, hiScoreDisplay, optionalTutorial;
 	static ScoreManager staticReference;
+
+    public const float GPG_PROGRESS_UNLOCK = 100f, GPG_PROGRESS_REVEAL = 0f;
 
 	//Constant keys for PlayerPrefs
 	public static string PREF_HISCORE  = "user_high_score";
@@ -50,14 +54,43 @@ public class ScoreManager : MonoBehaviour {
 	{
 		score ++;
 
-		if(score %10 == 0)
-		{
-			// increase speed after every 0 blocks
-			GamePause.IncreaseSpeed();
-		}
+        ScoreUpdateCallback();
 
-		UpdateDisplay ();
 	}
+
+    private static void ScoreUpdateCallback()
+    {
+        /**
+         * Callback function that is called whenever the score is updated.
+         * Any code to broadcast to any score update listeners should be 
+         * put here.
+         *
+         * Achievements related to score are also fired here
+         *
+         */
+
+        if (score % 10 == 0)
+        {
+            // increase speed after every 0 blocks
+            GamePause.IncreaseSpeed();
+        }
+
+        if (score == 10)
+        {
+            Social.ReportProgress(RoadblockGPG.achievement_baby_steps, GPG_PROGRESS_UNLOCK, (bool success) => { print("ScoreManager::ScoreUpdateCallback() unlocking achievement 'Baby Steps' success = " + success); });
+        }
+        if (score == 100)
+        {
+            Social.ReportProgress(RoadblockGPG.achievement_pro_spotted, GPG_PROGRESS_UNLOCK, (bool success) => { print("ScoreManager::ScoreUpdateCallback() unlocking achievement 'Pro Spotted' success = " + success); });
+        }
+        if (score == 1000)
+        {
+            Social.ReportProgress(RoadblockGPG.achievement_a_ton, GPG_PROGRESS_UNLOCK, (bool success) => { print("ScoreManager::ScoreUpdateCallback() unlocking achievement 'A Ton' success = " + success); });
+        }
+
+        UpdateDisplay();
+    }
+
 
 	static void SetReferenceForStatic(ScoreManager obj)
 	{

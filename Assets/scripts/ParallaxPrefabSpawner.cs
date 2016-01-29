@@ -46,7 +46,7 @@ public class ParallaxPrefabSpawner : MonoBehaviour {
 		                                      transform.position.y, 
 		                                      transform.position.z);
 		GameObject instantiatedObject = ((GameObject)GameObject.Instantiate (obj));
-		instantiatedObject.rigidbody2D.velocity = new Vector2 (0, -1 * downSpeed);
+		instantiatedObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (0, -1 * downSpeed);
 	}
 
 	float GetSpawnCoordinateWithinRange(float center, float width)

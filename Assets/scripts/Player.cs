@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 using System.Collections;
 
@@ -20,10 +21,10 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		rigidbody2D.transform.position = initialposition;
-		rigidbody2D.velocity = initialVelocity;
+		GetComponent<Rigidbody2D>().transform.position = initialposition;
+		GetComponent<Rigidbody2D>().velocity = initialVelocity;
 		
-		rigidbody2D.transform.localPosition = new Vector3(initialposition.x,
+		GetComponent<Rigidbody2D>().transform.localPosition = new Vector3(initialposition.x,
 		                                                  initialposition.y,
 		                                                  zIndex);
 		timeInS = 0f;
@@ -40,7 +41,7 @@ public class Player : MonoBehaviour {
 			return;
 		timeInS += Time.deltaTime;
 		
-		rigidbody2D.velocity = new Vector2(0, (initialVelocity.y * ((cutoffTimeInS - timeInS)/cutoffTimeInS))) ;
+		GetComponent<Rigidbody2D>().velocity = new Vector2(0, (initialVelocity.y * ((cutoffTimeInS - timeInS)/cutoffTimeInS))) ;
 
 		if(timeInS % 1 == 0)
 			print ("TimeInS = " + timeInS);
@@ -58,7 +59,7 @@ public class Player : MonoBehaviour {
 
 		//print ("Cutoff time reached");
 		timerReached = true;
-		rigidbody2D.velocity = Vector2.zero;
+		GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
@@ -90,7 +91,7 @@ public class Player : MonoBehaviour {
 		//To reload level 
 		//Called when the car hits an obstacle
 		Time.timeScale = 1f;
-		Application.LoadLevel (Application.loadedLevelName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		
 	}
 
